@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iframe Test Site</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    <title>Agent Hub</title>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <iframe src="https://ms.bet555mix.com" title="Embedded Website"></iframe>
+
+    <div class="container">
+        <h1>Welcome to Agent Hub</h1>
+        
+        <button id="playBtn" class="btn btn-primary">Play Now</button>
+        
+        <button id="downloadBtn" class="btn btn-secondary">Download APK</button>
+    </div>
+
+    <div id="iframeContainer" class="iframe-wrapper hidden">
+        <div class="iframe-header">
+            <button id="closeBtn" class="close-btn">&times;</button>
+        </div>
+        <iframe src="https://m.bet555mix.com" title="Betting Platform"></iframe>
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
