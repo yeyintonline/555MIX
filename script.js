@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Set the path to your APK file.
             // Since the APK is in the same folder, we just need the filename.
-            link.href = 'https://github.com/yeyintonline/555MIX/releases/download/V11.0.1/app.apk'; 
+            link.href = 'https://github.com/yeyintonline/555MIX/releases/download/V11.0.1/555.Mix.V11.0.1.YY.apk'; 
             
             // Suggest a filename for the download
             link.download = 'Bet555Mix_App.apk'; 
