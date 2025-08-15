@@ -1,0 +1,93 @@
+/* Basic Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main App Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+/* Button Styles */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #1877f2; /* Blue */
+}
+.btn-primary:hover {
+    background-color: #166fe5;
+}
+
+.btn-secondary {
+    background-color: #42b72a; /* Green */
+}
+.btn-secondary:hover {
+    background-color: #36a420;
+}
+
+/* Iframe Container (Hidden by default) */
+.iframe-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.iframe-header {
+    padding: 10px;
+    background-color: #f0f2f5;
+    text-align: right;
+}
+
+.close-btn {
+    background-color: #e4e6eb;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none;
+}
