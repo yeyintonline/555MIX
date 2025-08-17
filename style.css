@@ -1,93 +1,357 @@
-/* Basic Styles */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #1c1e21;
+:root {
+    --primary-color: #DAA520;
+    --border-color: #604B00;
+    --background-color: #000000;
+    --card-color: #1F1F1F;
+    --text-color-primary: #DAA520;
+    --text-color-secondary: #aaa;
+    --text-color-dark: #000;
+    --text-color-dark-faded: #333;
+    --text-color-light: #fff;
+    
+    --glow-color-primary: rgba(218, 165, 32, 0.6);
+    --glow-color-light: rgba(255, 255, 255, 0.6);
+    
+    --feedback-bg: #fff;
+    --feedback-border: #DAA520;
+    --feedback-color: #000;
+    --feedback-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.9);
+    
+    --button-default-bg: #222222;
+    --button-default-text: #aaa;
+    --button-hover-bg: var(--primary-color);
+    --button-hover-text: #000;
+    --button-hover-border: var(--primary-color);
+    --button-hover-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.9);
+    
+    --btn-glow-yellow-bg: #FFD700;
+    --btn-glow-green-bg: #39FF14;
+    --btn-glow-red-bg: #FF1F56;
+    --btn-glow-blue-bg: #00FFFF;
+    
+    --btn-bright-yellow-bg: #DAA520;
+    --btn-bright-green-bg: #556B2F;
+    --btn-bright-red-bg: #A52A2A;
+    --btn-bright-blue-bg: #4682B4;
+    
+    --btn-matte-yellow-bg: #D4AF37;
+    --btn-matte-green-bg: #6A7B54;
+    --btn-matte-red-bg: #A44A3F;
+    --btn-matte-blue-bg: #5B7C99;
+    
+    --shadow-inset-card: inset 2px 2px 6px rgba(0, 0, 0, 0.6);
+    --shadow-inset-button: inset 2px 2px 2px rgba(0, 0, 0, 0.6);
+    --shadow-outset-button-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
+    
+    --radius-card: 8px;
+    --radius-button: 6px;
+    --radius-pill: 20px;
+    --radius-circle: 50%;
+    --radius-feedback: 10px;
+}
+
+* {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Main App Container */
-.container {
-    width: 100%;
-    max-width: 400px;
+body {
+    background: var(--background-color);
+    font-family: sans-serif;
+    color: var(--text-color-primary);
+    padding: 10px;
+}
+
+.main-container {
+    max-width: 600px;
+    margin: 10px auto;
     text-align: center;
-    padding: 20px;
 }
 
-h1 {
-    font-size: 28px;
-    margin-bottom: 24px;
+.owner-profile {
+    background: var(--card-color);
+    border-radius: var(--radius-card);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-inset-card);
 }
 
-/* Button Styles */
-.btn {
+.owner-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.owner-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-circle);
+    border: 1px solid var(--primary-color);
+}
+
+.owner-text h4 {
+    color: var(--primary-color);
+    margin: 0 0 4px 0;
+    font-size: 1.5em;
+    text-shadow: 0 0 8px var(--glow-color-primary);
+}
+
+.owner-text p {
+    color: var(--text-color-secondary);
+    margin: 0;
+    font-size: 1em;
+    text-shadow: 0 0 6px var(--glow-color-light);
+}
+
+.ad-banner {
     display: block;
+    margin: 20px auto 0px auto;
+    max-width: 400px;
+    border-radius: var(--radius-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-banner img {
     width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 16px;
-    transition: background-color 0.3s;
+    border-radius: var(--radius-card);
+    vertical-align: middle;
 }
 
-.btn-primary {
-    background-color: #1877f2; /* Blue */
-}
-.btn-primary:hover {
-    background-color: #166fe5;
-}
-
-.btn-secondary {
-    background-color: #42b72a; /* Green */
-}
-.btn-secondary:hover {
-    background-color: #36a420;
-}
-
-/* Iframe Container (Hidden by default) */
-.iframe-wrapper {
-    position: fixed;
+.ad-banner::after {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff;
-    z-index: 1000;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-inset-card);
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.contact-bar {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: var(--card-color);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-inset-card);
 }
 
-.iframe-header {
-    padding: 10px;
-    background-color: #f0f2f5;
-    text-align: right;
-}
-
-.close-btn {
-    background-color: #e4e6eb;
-    border: none;
-    font-size: 20px;
+.contact-bar-text {
+    color: var(--primary-color);
+    font-size: 0.9em;
     font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 50%;
-    cursor: pointer;
+    margin-right: 25px;
+    text-shadow: 0 0 8px var(--glow-color-primary);
 }
 
-iframe {
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a img {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.15);
+}
+
+.section-title {
+    display: inline-block;
+    background-color: var(--card-color);
+    color: var(--text-color-primary);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 6px 20px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-inset-card);
+    text-shadow: 0 0 8px var(--glow-color-primary);
+}
+
+.section-subtitle {
+    font-size: 0.8em;
+    color: var(--text-color-secondary);
+    text-align: center;
+    line-height: 1.5;
+    margin-top: -5px;
+    margin-bottom: 18px;
+    padding-left: 0;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    border: none;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 5px;
+    font-size: 0.7em;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-button);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-inset-button);
+    margin-bottom: 0;
 }
 
-/* Utility class to hide elements */
+.btn:hover,
+.btn:active {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+    font-weight: 600;
+    border: 1px solid var(--button-hover-border);
+    box-shadow: var(--feedback-shadow);
+    transform: translateY(0); 
+    
+}
+
+.btn-glow-yellow { background-color: var(--btn-glow-yellow-bg); color: var(--text-color-dark-faded); }
+.btn-glow-green { background-color: var(--btn-glow-green-bg); color: var(--text-color-dark-faded); }
+.btn-glow-red { background-color: var(--btn-glow-red-bg); color: var(--text-color-dark-faded); }
+.btn-glow-blue { background-color: var(--btn-glow-blue-bg); color: var(--text-color-dark-faded); }
+
+.btn-bright-yellow { background-color: var(--button-default-bg); color: var(--button-default-text); }
+.btn-bright-green { background-color: var(--button-default-bg); color: var(--button-default-text); }
+.btn-bright-red { background-color: var(--button-default-bg); color: var(--button-default-text); }
+.btn-bright-blue { background-color: var(--button-default-bg); color: var(--button-default-text); }
+
+.btn-matte-yellow { background-color: var(--button-default-bg); color: var(--button-default-text); }
+.btn-matte-green { background-color: var(--button-default-bg); color: var(--button-default-text); }
+.btn-matte-red { background-color: var(--button-default-bg); color: var(--button-default-text); }
+.btn-matte-blue { background-color: var(--button-default-bg); color: var(--button-default-text); }
+
+.feedback {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--feedback-bg);
+    color: var(--feedback-color);
+    padding: 12px 24px;
+    border-radius: var(--radius-feedback);
+    font-size: 16px;
+    z-index: 2000;
+    transition: top 0.5s ease-in-out;
+    font-weight: 600;
+    border: 2px solid var(--feedback-border);
+    box-shadow: var(--feedback-shadow);
+    width: 320px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.feedback.show {
+    top: 30px;
+}
+
+
+
+/* --- Theme Switcher Button (Contact Bar Style) --- */
+.theme-switcher {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+}
+
+.theme-switcher:hover {
+    transform: scale(1.15);
+}
+
+.theme-switcher svg {
+    width: 22px; /* Match social icon size */
+    height: 22px; /* Match social icon size */
+    color: var(--text-color-secondary);
+}
+
 .hidden {
     display: none;
 }
+
+/* --- VPN Badge Style --- */
+
+.vpn-badge {
+    display: inline-block;
+    background-color: var(--text-color-secondary);
+    color: var(--background-color);
+    
+    /* --- Adjustments for a smaller size --- */
+    padding: 1px 1px;       /* Reduced horizontal padding */
+    border-radius: 2px;     /* Smaller radius for a smaller box */
+    font-size: 0.2em;      /* Made font significantly smaller */
+    font-weight: 700;       /* Slightly less bold to appear smaller */
+    line-height: 1;       /* Tighter line height for vertical space */
+    margin-left: 4px;       /* Adjusted spacing to the left */
+    
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+/* Light theme version of the badge */
+body.light-theme .vpn-badge {
+    background-color: var(--text-color-secondary);
+    color: var(--card-color);
+}
+
+/* ⚪⚪⚪  LIGHT THEME <body class="light-theme"> */
+
+body.light-theme {
+    /* Main Colors */
+    --background-color: #ffffff;
+    --card-color: #e9ebee;
+    --primary-color: #BF8600;
+    --border-color: #BF8600;
+    
+    /* Text Colors */
+    --text-color-primary: #BF8600;
+    --text-color-secondary: #2c2c2c;
+
+    /* Button Colors */
+    --button-default-bg: #e9ebee;
+    --button-default-text: #000000;
+    --button-hover-bg: var(--primary-color);
+    --button-hover-text: #ffffff;
+    --button-hover-border: var(--primary-color);
+    
+    /* Feedback Notification for Light Theme */
+    --feedback-bg: #2c2c2c;
+    --feedback-border: #BF8600;
+    --feedback-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.7);
+    --feedback-color: #ffffff;
+}
+
