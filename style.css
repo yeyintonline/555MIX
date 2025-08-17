@@ -328,6 +328,42 @@ body.light-theme .vpn-badge {
     color: var(--card-color);
 }
 
+/* --- ADD THIS NEW RULE at the end of your style.css --- */
+
+/* Style for a copy button that has been successfully clicked */
+.btn.activated {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: 1px solid var(--button-hover-border);
+    box-shadow: var(--feedback-shadow);
+}
+
+/* Style for the light-theme version */
+body.light-theme .btn.activated {
+    background-color: var(--primary-color);
+    color: var(--button-hover-text);
+    border-color: var(--button-hover-border);
+    box-shadow: var(--button-hover-shadow);
+}
+
+/* --- FINAL POLISH: VPN Badge Hover & Active State --- */
+
+/* For Dark Theme */
+.btn:hover .vpn-badge,
+.btn:active .vpn-badge,
+.btn.activated .vpn-badge {
+    background-color: var(--background-color); /* Inverts: Dark BG */
+    color: var(--primary-color);            
+}
+
+/* For Light Theme */
+body.light-theme .btn:hover .vpn-badge,
+body.light-theme .btn:active .vpn-badge,
+body.light-theme .btn.activated .vpn-badge {
+    background-color: var(--background-color); /* Inverts: Dark BG */
+    color: var(--primary-color);
+}
+
 /* ⚪⚪⚪  LIGHT THEME <body class="light-theme"> */
 
 body.light-theme {
